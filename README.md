@@ -1,14 +1,14 @@
 # ProjetPacNam
 
-## Se familiarisé avec l'environement
+## Se familiariser avec l'environnement
 
-Vous êtes sur i3 : un gestionaire de fenettre qui marche pas tuile. Fini les fenntres flotantes de Windows !
+Vous êtes sur i3 : un gestionnaire de fenêtres qui marche par tuile. Fini les fenêtres flottantes de Windows !
 
 - `windows + D`      (pour toutes recherche d'application)
 
 - `windows + enter`  (ouvre un nouveau terminal)
 
-Une fois le terminal lancer, pour affiché ce qui a dans le dossier courant faites `ls` ou `l`
+Une fois le terminal lancé, pour afficher ce qu’il y a dans le dossier courant, faites `ls` ou `l`
 
 Pour changer de dossier faites `cd "Nom du dossier"`
 
@@ -16,17 +16,17 @@ Pour revenir en arrière faites `cd ..`
 
 Maintenant que vous avez les cartes en main, on peut y aller !
 
-Pour commencer, exécutez la commande `./setup.sh` qui permetera d'installer l'environement
+Pour commencer, exécutez la commande `./setup.sh` qui permettra d'installer l'environnement.
 
-Une fois que la commande est terminé pour lancer Visual Studio Code tapé `code` dans le terminal
+Une fois que la commande est terminée, pour lancer Visual Studio Code tapez `code` dans le terminal.
 
-Pour lancer votre programme python aller dans le dossier `PacNam/` et exécuté `python main.py`
+Pour lancer votre programme python aller dans le dossier `PacNam/` et exécutez `python main.py`
 
-Vous avez les fichiers `pacnam.py` et `ghost.py` a compléter.
+Vous avez les fichiers `pacnam.py` et `ghost.py` à compléter.
 
 ## Le fichier `pacnam.py`
 
-Vous avez les atttributs suivant a votre disposition : 
+Vous avez les attributs suivant à votre disposition :
 
 - `self.size`         (Taille en pixel d'une case de la grille)
 
@@ -34,33 +34,33 @@ Vous avez les atttributs suivant a votre disposition :
 
 - `self.life`         (Points de vie du PacNam)
 
-- `self.dt`           (Le delta de temps, pour adapté le mouvement à la fréquence d'image (vous n'avez pas a le modifier))
+- `self.dt`           (Le delta de temps, pour adapter le mouvement à la fréquence d'image (vous n'avez pas à le modifier))
 
 - `self.pos.*`       (Position x (self.pos.x) et y (self.pos.y) du PacNam sur la grille)
 
-- `self.start_pos`    (Position de départ du PacNam (utile pour le mettre a sa position de départ))
+- `self.start_pos`    (Position de départ du PacNam (utile pour le mettre à sa position de départ))
 
 - `self.score`        (Score du PacNam)
 
-- `self.power_up`     (Vous dis si PacNam a sont power_up (True) ou pas (False))
+- `self.power_up`     (Vous dit si PacNam a son power_up (True) ou pas (False))
 
 - `self.timer`        (Durée de recupération du power-up)
 
-- `self.make.maze`    (Un tableau a deux dimention (une liste de liste) qui représente les murs (1) et les espaces ou PacNam peux aller (0))
+- `self.make.maze`    (Un tableau en deux dimensions (une liste de listes) qui représente les murs (1) et les espaces ou PacNam peux aller (0))
 
-**Note** : Pour accéder à une case en particulié, vous pouvez faire ```python self.maze.maze[ligne][colonnes]```
+**Note** : Pour accéder à une case en particulier, vous pouvez faire ```python self.maze.maze[ligne][colonnes]```
 
-- `self.maze.points`  (Même structure que précédement, mais qui représente les points (1) les power-ups (2) et les espaces vides (ni points ni power-up) (0))
+- `self.maze.points`  (Même structure que précédemment, mais qui représente les points (1) les power-ups (2) et les espaces vides (ni points ni power-up) (0))
 
-Dans ce fichier, vosu decrais faire les méthodes : 
+Dans ce fichier, vous devrez faire les méthodes :
 
-- `move_*()`         (Permet au PacMan de bouger à gauche/droite/haut/bas dans le labirythe, en testant s'il vas pas dans un mur. Vous devez modifier les variables `self.pos.x` et `self.pos.y`. *Vous devrez utilisé self.dt dans cette fonction en la multipliant par la vitesse du PacNam*)
+- `move_*()`         (Permet au PacMan de bouger à gauche/droite/haut/bas dans le labyrinthe en vérifiant qu’il ne va pas dans un mur. Vous devez modifier les variables `self.pos.x` et `self.pos.y`. *Vous devrez utiliser self.dt dans cette fonction en la multipliant par la vitesse du PacNam*)
 
-- `kill()`            (PacNam c'est fait touché ! Vous devez lui enlever une vie et le remettre a sa position de départ)
+- `kill()`            (PacNam s'est fait toucher ! Vous devez lui enlever une vie et le remettre à sa position de départ)
 
-- `eat()`             (Permet a PacNam de manger les points et incrémenté son score et mettre a jour son power_up)
+- `eat()`             (Permet à PacNam de manger les points et incrémenter son score et mettre à jour son power_up)
 
-- `power()`           (Permet a PacNam de gardé son power_up pendant 10 secondes. (self.timer sera utilisé ici)
+- `power()`           (Permet à PacNam de garder son power_up pendant 10 secondes. (self.timer sera utilisé ici)
 
 ## Le fichier `maze.py`
 
@@ -72,7 +72,7 @@ Il manque la méthode `check_end()` qui renvois `False` si tous les points ont �
 
 Il nous reste donc : 
 
-- `self.pos`          (Liste de valeurs `[x, y]` qui correspond aux coordonées en pixel du fantôme)
+- `self.pos`          (Liste de valeurs `[x, y]` qui correspond aux coordonées en pixels du fantôme)
 
 - `self.real_pos`     (Tuple de valeurs `(x, y)` qui correspond aux coordonées sur la grille du `self.maze.maze`)
 
@@ -80,9 +80,9 @@ Il nous reste donc :
 
 *La méthode `move_*()` étant la même que pour PacNam, voici les autres méthodes :*
 
-- `kill`              (Le Fantôme a été touché, quand PacNam avais sont power_up. Il doit retourné a sont point de départ et son chemin a été réinitialisé)
+- `kill`              (Le Fantôme a été touché, quand PacNam avais sont power_up. Il doit retourner à son point de départ et son chemin a été réinitialisé)
 
-- `action()`          (Soit vous faite déplacé le fantôme au hazard sur la grille, soit vous lui fait suivre l'algorithme A*)
+- `action()`          (Soit vous faites se déplacer le fantôme au hasard sur la grille, soit vous lui faites suivre l'algorithme A*)
 
 
 ### Algorithme A*
